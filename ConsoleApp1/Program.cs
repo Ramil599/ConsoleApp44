@@ -78,20 +78,27 @@ namespace ConsoleApp4
                     var _IdList = new List<int>();
                     Diction.TryGetValue(ChildArray[i].ParentId, out _IdList);
                     _IdList.Add(ChildArray[i].Id);
-                    
-                }
-              
-            }
-            foreach (var entity in Diction)
-            {
-                foreach(var Entity in Diction.Values)
-                {
-                    Console.WriteLine($"key: {entity.Key}  value: {Entity}");
+                    Diction.Remove(ChildArray[i].ParentId);
+                    Diction.Add(ChildArray[i].ParentId, _IdList);
                 }
                 
+
+            }
+           /* foreach ( var keyvaluepair in Diction)
+            {
+                
+                foreach (var item in keyvaluepair.Value)
+                {
+                    Console.WriteLine($"key: {item}  value: {keyvaluepair}");
+                }
+            }*/
+            
+            foreach (var entity in Diction)
+            {
+                Console.WriteLine($"key: {entity.Key}  value: {entity.Value}");
             }
 
-            /* string way = @"D:\1.txt";
+             string way = @"D:\1.txt";
              File.WriteAllText(way, string.Empty);
              var LoggerInt = new LocalFileLogger<int>(way);
              var LoggerStr = new LocalFileLogger<string>(way);
@@ -112,7 +119,7 @@ namespace ConsoleApp4
                  LoggerStr.LogError("Bye", e);
                  LoggerInt.LogError("Bye", e);
              }
-            */
+            
         }
     }
 }
