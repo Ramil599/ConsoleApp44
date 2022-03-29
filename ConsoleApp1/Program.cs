@@ -1,48 +1,12 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
-interface ILogger
-{
-    void LogInfo(string message);
-    void LogWarning(string message);
-    void LogError(string message, Exception ex);
 
-}
-namespace ConsoleApp4
+namespace ConsoleApp111
 
 {
-    class Entity
-    {
-        public int Id;
-        public int ParentId;
-        public string Name;
-        
-    }
-    class LocalFileLogger<T> : ILogger
-    {
-
-        public string GenericTypeName = typeof(T).Name;
-        private string Way;
-        public LocalFileLogger(string way)
-        {
-            Way = way;
-        }
-        public void LogInfo(string message)
-        {
-            File.AppendAllText(Way, Environment.NewLine + "[Info]:" +Environment.NewLine + 
-                $"[{GenericTypeName}]:{message}");
-        }
-        public void LogWarning(string message)
-        {
-            File.AppendAllText(Way, Environment.NewLine + "[Warning]:" + Environment.NewLine + 
-                $"[{GenericTypeName}]:{message}");
-        }
-        public void LogError(string message, Exception ex)
-        {
-            File.AppendAllText(Way, Environment.NewLine + "[Error]:" +Environment.NewLine + 
-                $"[{GenericTypeName}]:{message}. {ex.Message}");
-        }
-    }
+   
+    
     class Program
     {
         static void Main(string[] args)
@@ -64,7 +28,8 @@ namespace ConsoleApp4
             ChildArray[2] = Child2;
             ChildArray[3] = Child3;
             ChildArray[4] = Child4;
-            
+          
+           
             var Diction = new Dictionary<int, List<int>>();
             for(int i=0; i < ChildArray.Length; i++) {
                 var IdList = new List<int>();
@@ -84,20 +49,10 @@ namespace ConsoleApp4
                 
 
             }
-           /* foreach ( var keyvaluepair in Diction)
-            {
-                
-                foreach (var item in keyvaluepair.Value)
-                {
-                    Console.WriteLine($"key: {item}  value: {keyvaluepair}");
-                }
-            }*/
-            
             foreach (var entity in Diction)
             {
                 Console.WriteLine($"key: {entity.Key}  value: {entity.Value}");
             }
-
              string way = @"D:\1.txt";
              File.WriteAllText(way, string.Empty);
              var LoggerInt = new LocalFileLogger<int>(way);
