@@ -3,10 +3,7 @@ using System.IO;
 using System.Collections.Generic;
 
 namespace ConsoleApp111
-
 {
-   
-    
     class Program
     {
         static void Main(string[] args)
@@ -16,18 +13,18 @@ namespace ConsoleApp111
             var Child2 = new Entity();
             var Child3 = new Entity();
             var Child4 = new Entity();
-        
-            Child0.Id = 1; Child0.Name = "Root entity";Child0.ParentId = 0;
-            Child1.Id = 2;Child1.Name = "Child of 1 entity ";Child1.ParentId = 1;
-            Child2.Id = 3;Child2.Name = "Child of 1 entity "; Child2.ParentId = 1;
-            Child3.Id = 4; Child3.Name = "Child of 2 entity "; Child3.ParentId = 2;
-            Child4.Id = 5; Child4.Name = "Child of 4 entity "; Child4.ParentId = 4;
             var ChildArray = new Entity[5];
             ChildArray[0] = Child0;
             ChildArray[1] = Child1;
             ChildArray[2] = Child2;
             ChildArray[3] = Child3;
             ChildArray[4] = Child4;
+            Child0.Id = 1; Child0.Name = "Root entity";Child0.ParentId = 0;
+            Child1.Id = 2;Child1.Name = "Child of 1 entity ";Child1.ParentId = 1;
+            Child2.Id = 3;Child2.Name = "Child of 1 entity "; Child2.ParentId = 1;
+            Child3.Id = 4; Child3.Name = "Child of 2 entity "; Child3.ParentId = 2;
+            Child4.Id = 5; Child4.Name = "Child of 4 entity "; Child4.ParentId = 4;
+            
           
            
             var Diction = new Dictionary<int, List<int>>();
